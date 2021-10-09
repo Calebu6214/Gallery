@@ -1,0 +1,32 @@
+{% extends 'all-gallery/base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
+
+{% block content %}
+{{block.super}}
+
+  <div class="container">
+   
+    <div class="row">
+
+      {% for image in images%}
+
+      <div class="col-md-3">
+        
+          <img src="{{image.photo_image.url}}" alt="image of {image.image_name}" class="img-fluid gallery">
+
+          <p class="text_image">{{image.image_name}}</p>
+        
+      </div>
+
+      {% endfor %}
+
+    </div>
+
+  </div>
+{% endblock %}
