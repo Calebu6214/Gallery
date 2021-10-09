@@ -1,5 +1,5 @@
 from django.db import models
-# from cloudinary.models import CloudinaryField
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 class Category(models.Model):
@@ -32,8 +32,7 @@ class Location(models.Model):
         ordering=['location']
 
 class Image(models.Model):
-    # photo_image=CloudinaryField('photo_image')
-    image = models.ImageField(upload_to = 'articles/',null = False)
+    photo_image=CloudinaryField('photo_image')
     image_name = models.CharField(max_length=70)
     image_description = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
@@ -67,6 +66,12 @@ class Image(models.Model):
     def search_by_category(cls,search_term):
         images = cls.objects.filter(category_id__category__icontains=search_term)
         return images
+
+    #  search
+    # @classmethod
+    # def search_by_title(cls,search_term):
+    #     news = cls.objects.filter(title__icontains=search_term)
+    #     return news
     
     @classmethod
     def get_all_images(cls):

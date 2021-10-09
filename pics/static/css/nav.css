@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+
+body{
+    font-family:serif;
+}
+
+
+
+.navbar {
+    background-color: #002366;
+
+}
+
+.navbar-brand {
+    color: white;
+}

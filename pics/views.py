@@ -18,6 +18,7 @@ def image_by_location(request,location):
     images=Image.get_image_by_location(location)
     return render(request,'all-gallery/location.html',{"images":images,"location":location,"locations":locations}) 
 
+
 def search_by_category(request):
     categories=Category.objects.all()
     locations=Location.objects.all()

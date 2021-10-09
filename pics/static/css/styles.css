@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital@1&display=swap');
+.container {
+    background-color:  #006616;
+    -webkit-animation: color-change-2x 2s linear infinite alternate both;
+	        animation: color-change-2x 2s linear infinite alternate both;
+}
+@-webkit-keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #8d8f1a;
+    }
+  }
+  @keyframes color-change-2x {
+    0% {
+      background: #19dcea;
+    }
+    100% {
+      background: #b22cff;
+    }
+    
+  }
+  @keyframes color-change-2x {
+    0% {
+      background:  greenyellow;
+    }
+    100% {
+      background: #30ba9c;
+    }
+    
+  }
+  
+
+.gallery {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    max-height: 17vw;
+    min-height: 17vw;
+    max-width:17vw;
+    min-width: 17vw;
+
+}
+.modal-body {
+  background-color:  green !important;
+  color: white;
+}
+.modal-title {
+  font-weight: bold;
+
+}
+
+.details {
+  margin-top: 10px;
+}
+
+.text_image {
+    color: #fff;
+    font-family: 'Caveat', cursive;
+}
+
+.line {
+  background-color: white;
+}
+
+.locations {
+  float: left;
+}
+
+#location_btn {
+  color: white;
+  margin-left: 20px;
+  float: right;
+  width:8%;
+}
