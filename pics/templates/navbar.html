@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+ <a class="float-start galeria" href="{% url 'gallery' %}">Galeria</a>
+
+    <nav class="navbar navbar-inverse">
+
+        <div class="container-fluid">
+
+
+            <ul class="nav navbar-nav">
+
+                <li>
+
+                <a id="len1" class="hoverable" href="{% url 'gallery' %}">Home</a>
+                <a id="len2" class="hoverable" href="/admin">Add photo</a>
+                 
+                  </li>
+
+
+              </ul>
+
+              <div class="dropdown">
+                <a class = "dropdown-toggle hoverable text-white" type="button" id="len5"  id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Locations
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item text-dark" href="{% url 'gallery' %}">All</a>
+                  {%for location in locations%}
+                  <a class="dropdown-item text-dark" href="{% url 'gallery' %}?location={{location.name}}">{{location.name}}</a>
+                  {%endfor%}          
+                </div>
+              </div>
+
+        </div>
+      </nav>
+
+</body>
+</html>
