@@ -31,4 +31,11 @@ def search_by_category(request):
     
     else:
         message ="You haven't searched for any term"
-        return render(request, 'all-gallery/search.html',{"message":message})   
+        return render(request, 'all-gallery/search.html',{"message":message}) 
+
+def single_image(request,image_id):
+    try:
+        image=Image.objects.get(id=image_id)
+    except Image.DoesNotExist:
+        raise Http404()
+    return render(request,"all_gallery/image.html",{"image":image})   
