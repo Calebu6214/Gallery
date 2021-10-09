@@ -36,8 +36,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'bootstrap5'
     'pics.apps.PicsConfig',
+    'bootstrap5',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'gallery.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('gallery'),
-        'USER': config('postgres'),
-        'PASSWORD':config('postgres'),
-        'HOST': config('127.0.0.1'),
+        'NAME': 'gallery',
+        'USER': 'postgres',
+        'PASSWORD':'postgres',
+        'HOST': '127.0.0.1',
         'PORT':'', 
             
     }
