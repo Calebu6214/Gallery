@@ -36,13 +36,15 @@ def image_by_location(request,location):
 
 
 def search_by_category(request):
+    categories = Category.objects.all()
+    locations = Location.objects.all()
     
     if 'category' in request.GET and request.GET["category"]:
         search_term=request.GET.get("category")
         searched_categories=Image.search_by_category(search_term)
         message = f"{search_term}"
         
-        return render(request, 'all-gallery/search.html',{"message":message,"searched_categories":searched_categories})
+        return render(request, 'all-gallery/search.html',{"message":message,"searched_categories":searched_categories,"categories":categories,"locations":locations})
     
     else:
         message ="You haven't searched for any term"
