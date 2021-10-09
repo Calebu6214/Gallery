@@ -35,8 +35,8 @@ class Image(models.Model):
     photo_image=CloudinaryField('photo_image')
     image_name = models.CharField(max_length=70)
     image_description = models.CharField(max_length=255)
-    category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
-    location_id = models.ForeignKey(Location,on_delete=models.CASCADE)
+    category_id = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
+    location_id = models.ForeignKey(Location,on_delete=models.SET_NULL,null=True)
     date_posted = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

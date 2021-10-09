@@ -1,24 +1,51 @@
 {% extends 'all-gallery/base.html' %}
-{% load bootstrap5 %}
-{% load static %}
-
-{% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% endblock %}
 
 {% block content %}
 {{block.super}}
 
 <div class="container">
 
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{image.image_name}}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+           {% for image in images %}
+           <img src="{{image.photo_image.url}}" alt="image of {image.image_name}" class="img-fluid">
+            <div class="details">
+                Picture Details....
+            </div>
+            <div class="details">
+            Category : <span >{{image.category_id}}</span>
+            Location : <span >{{image.location_id}}</span>
+            <p class="imgdesc">{{image.image_description}}</p>
+            Photo-Image Link.
+            <input class="form-control input-lg" type="text"
+                   value="/{{ MEDIA_URL }}{{image.photo_image.url}}" id="{{image.id}}" style="display: none">
+            <button class="btn btn-success btn-sm copy-btn" data-hex="{{image.photo_image.url}}">Copy</button>
+
+            </div> 
+            {% endfor %} 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
     <hr class="line">
 
     <div class="row">
 
         {% for location in locations  %}
 
-        <a href="location/{{location.id}}/" type="button"  class="btn btn-outline-success" id="location_btn">{{location.location}}</a>
+        <a href="{% url 'location' 'location.id' %}" type="button"  class="btn btn-outline-success" id="location_btn">{{location.location}}</a>
 
         
         
@@ -33,50 +60,15 @@
 
         <div class="col-md-3">
 
-            <a data-toggle="modal" id="myModal" data-target="#{{image.id}}">
-                <img src="{{image.photo_image.url}}" alt="image of {image.image_name}" class="img-fluid gallery">
-            </a>
+            
+                <img src="{{image.photo_image.url}}" data-bs-toggle="modal" data-bs-target="#exampleModal" alt="image of {image.image_name}" class="img-fluid gallery">
+            
 
                 <p class="text_image">{{image.image_name}}</p>
                 <div class="btns mt-2">
-                    <a href="" class="btn fw-bold" > <span></span> view details</a>
+                    <a href="{% url 'image' image.id%}" class="btn fw-bold" > <span></span> view details</a>
                 </div>
 
-                <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <p class="modal-title" id="exampleModalCenterTitle">{{image.image_name}}</p>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                            <img src="{{image.photo_image.url}}" alt="image of {image.image_name}" class="img-fluid">
-                            <div class="details">
-                                Picture Details....
-                            </div>
-                            <div class="details">
-                            Category : <span class="btn btn-sm btn-outline-success">{{image.category_id}}</span>
-                            Location : <span class="btn btn-sm btn-outline-success">{{image.location_id}}</span>
-                            <p class="imgdesc">{{image.image_description}}</p>
-                            Photo-Image Link.
-                            <input class="form-control input-lg" type="text"
-                                   value="/{{ MEDIA_URL }}{{image.photo_image.url}}" id="{{image.id}}" style="display: none">
-                            <button class="btn btn-success btn-sm copy-btn" data-hex="{{image.photo_image.url}}">Copy</button>
-
-                            </div>      
-                            
-                        </div>
-                        <div class="modal-footer">
-                            
-                            <div class="details">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
 
 
         </div>

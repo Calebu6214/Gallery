@@ -1,11 +1,5 @@
 {% extends 'all-gallery/base.html' %}
-{% load bootstrap5 %}
-{% load static %}
 
-{% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% endblock %}
   
   {% block content %}
 <div class="container">
@@ -19,7 +13,7 @@
   </div>
 
   <div class="row">
-
+    {% if searched_categories %}
     {% for image in  searched_categories %}
 
     <div class="col-md-3">
@@ -31,6 +25,7 @@
     </div>
 
     {% endfor %}
+    {% endif %}
 
   </div>
 </div>

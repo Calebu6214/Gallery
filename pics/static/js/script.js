@@ -1,6 +1,6 @@
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-  })
+// $('#myModal').on('shown.bs.modal', function () {
+//     $('#myInput').trigger('focus')
+//   })
   
 const copyBtns = [...document.getElementsByClassName('copy-btn')]
 console.log(copyBtns)

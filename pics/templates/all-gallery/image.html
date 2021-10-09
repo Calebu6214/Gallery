@@ -1,14 +1,8 @@
 {%extends 'all-gallery/base.html'%}
-{% load bootstrap5 %}
-{% load static %}
 
-{% block styles %}
-    {% bootstrap_css %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  {% endblock %}
 
  {% block content %}
-
+ {{block.super}}
  <div class="container">
 
    <div class="row">
