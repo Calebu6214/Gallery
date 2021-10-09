@@ -1,6 +1,10 @@
 from django.shortcuts import render
-from django.http  import HttpResponse
+from django.http  import HttpResponse,Http404
+from .models import Image,Location,Category
 
 # Create your views here.
 def home(request):
-    return render(request, 'home.html')
+    images=Image.get_all_images()
+    locations=Location.get_locations()
+
+    return render(request, 'all-gallery/home.html',{"images":images,"locations":locations})
