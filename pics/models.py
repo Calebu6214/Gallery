@@ -56,3 +56,21 @@ class Image(models.Model):
     def get_image_by_id(cls,id):
         image=cls.objects.filter(id=id).all()
         return image 
+
+    @classmethod
+    def get_image_by_location(cls,location):
+        location=Image.objects.filter(location_id_id=location).all()
+        return location
+    
+    @classmethod
+    def search_by_category(cls,search_term):
+        images = cls.objects.filter(category_id__category__icontains=search_term)
+        return images
+    
+    @classmethod
+    def get_all_images(cls):
+        images = cls.objects.all()
+        return images
+    
+    class Meta:
+        ordering=['date_posted'] 
