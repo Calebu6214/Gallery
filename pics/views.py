@@ -38,4 +38,4 @@ def single_image(request,image_id):
         image=Image.objects.get(id=image_id)
     except Image.DoesNotExist:
         raise Http404()
-    return render(request,"all_gallery/image.html",{"image":image})   
+    return render(request,"all-gallery/image.html",{"image":image})   
