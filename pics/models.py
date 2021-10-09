@@ -37,4 +37,13 @@ class Image(models.Model):
     image_description = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
     location_id = models.ForeignKey(Location,on_delete=models.CASCADE)
-    date_posted = models.DateTimeField(auto_now_add=True)  
+    date_posted = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.image_name
+    
+    def save_image(self):
+        self.save()
+        
+    def delete_image(self):
+        self.delete()   
