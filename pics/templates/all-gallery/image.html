@@ -1,0 +1,32 @@
+{%extends 'all-gallery/base.html'%}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  {% endblock %}
+
+ {% block content %}
+
+ <div class="container">
+
+   <div class="row">
+     <img src="{{image.photo_image.url}}"  class="img-fluid gallery" alt="">
+   </div>
+
+   <div class="row">
+     <h1 class="text-center">{{image.image_name}}</h1>
+   </div>
+
+   <div class="row">
+     <p>{{image.image_description}}</p>
+   </div>
+
+   <div class="row">
+     <p>Posted {{image.date_posted|timesince}}</p>
+   </div>
+
+ </div>
+
+ {% endblock %}
