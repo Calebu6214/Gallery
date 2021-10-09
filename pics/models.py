@@ -33,6 +33,7 @@ class Location(models.Model):
 
 class Image(models.Model):
     # photo_image=CloudinaryField('photo_image')
+    image = models.ImageField(upload_to = 'articles/',null = False)
     image_name = models.CharField(max_length=70)
     image_description = models.CharField(max_length=255)
     category_id = models.ForeignKey(Category,on_delete=models.CASCADE)
