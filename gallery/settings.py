@@ -13,6 +13,10 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 # import cloudinary_storage
+# import cloudinary
+# import cloudinary
+# import cloudinary.uploader
+# import cloudinary.api
 import django_heroku
 import dj_database_url
 from decouple import config,Csv
@@ -44,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'cloudinary'
 ]
 
 MIDDLEWARE = [
@@ -138,3 +143,9 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# cloudinary.config( 
+#   cloud_name = "caleb", 
+#   api_key = "YOUR_API_KEY", 
+#   api_secret = "kim" 
+# )
