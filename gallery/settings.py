@@ -21,7 +21,7 @@ import dj_database_url
 from decouple import config,Csv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -92,10 +92,10 @@ if config('MODE')=="dev":
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('gallery'),
-            'USER': config('postgres'),
-            'PASSWORD':config('postgres'),
-            'HOST':config('127.0.0.1'),
+            'NAME': 'gallery',
+            'USER': 'postgres',
+            'PASSWORD':'postgres',
+            'HOST':'127.0.0.1',
             'PORT':'', 
                 
         }
