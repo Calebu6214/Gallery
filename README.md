@@ -18,11 +18,12 @@
     CREATE DATABASE <database name>; and connect it in settings.py
     - Run the code in your code editor  using :
     $ python3 manage.py runserver
-
+## Site Link
+. https://gallerykim.herokuapp.com/
 
 #### Technologies Used;
     - HTML
-    - CSS
+    - CSS and Bootstrap 
     - Django-3.2.8
     -Javascript
 
