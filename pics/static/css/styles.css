@@ -41,6 +41,9 @@
     min-width: 17vw;
 
 }
+.sap{
+  color:green;
+}
 .modal-body {
   background-color:  green !important;
   color: white;
