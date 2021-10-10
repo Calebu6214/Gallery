@@ -30,5 +30,6 @@
 ### CONTACT
  Email :calebkimutai97@gmail.com
 
- ### LICENCE
+ ### LICENSE
+ . Under MIT LICENSE
 #### &copy;2021 Caleb Kipngetich.
